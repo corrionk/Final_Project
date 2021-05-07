@@ -1,6 +1,6 @@
 * {
   box-sizing: auto;
-  font-family: Ubuntu, sans-serif;
+  font-family: Cambria;
 }
 
 html,
@@ -8,6 +8,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background: #beaf21
 }
 
 /* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
@@ -25,7 +26,7 @@ body {
   bottom: 0;
   left: 0;
   min-height: 100px;
-  background: #4e5d6c;
+  background: #d80c5a;
 }
 
 /* The code styles the text at the bottom of the footer */
@@ -35,12 +36,13 @@ body {
   bottom: 0;
   left: 0;
   padding: 5px;
-  background: #0080f9;
+  background: #beaf21;
 }
 
 .navbar {
   padding: 5px;
   margin: 0;
+  background: #beaf21
 }
 
 /* This CSS styles the ufo icon in the navbar */
@@ -49,7 +51,7 @@ body {
   bottom: 5px;
   left: 150px;
   width: 35px;
-  color: white;
+  color: rgb(12, 1, 1);
 }
 
 /* Adding styles to the aside and filter form */
@@ -65,31 +67,6 @@ body {
   margin-top: 10px;
 }
 
-select {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  color: #8e979f;
-  outline: none;
-}
-
-#table-area th {
-  text-align: center;
-}
-
-#table-area th:first-child,
-#table-area th:nth-child(2),
-#table-area th:nth-child(20) {
-  min-width: 70px;
-}
-
-.loader {
-  margin-top: 50px;
-}
-
-.margin-top-50 {
-  margin-top: 50px;
-}
 
 /* The styles for the parallax */
 .hero {
@@ -97,7 +74,7 @@ select {
   height: 550px;
   padding: 20px;
   margin: 0;
-  background: black;
+  background: rgb(160, 134, 21);
   background-image: url("beer.jpg");
   background-attachment: fixed;
   background-position: bottom center;
@@ -108,19 +85,30 @@ select {
   margin-top: 200px;
   font-size: 0.1rem;
   animation: title 1.2s forwards linear;
+  color:#020608;
+  
 }
 
 .hero p {
-  font-size: 2rem;
+  font-size: 4rem;
   opacity: 0;
   animation: subtitle 1.2s forwards linear;
   animation-delay: 1.2s;
+  color:#16e4c1;
+}
+
+.hero p2 {
+  font-size: 4rem;
+  opacity: 0;
+  animation: subtitle 1.2s forwards linear;
+  animation-delay: 1.2s;
+  color:#160abb;
 }
 
 /* input placeholder color changes */
 .form-control::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #8e979f;
+  color: #020608;
 }
 
 .form-control::-moz-placeholder {
@@ -153,7 +141,7 @@ select {
   #table-area tr td:first-child {
     font-size: 1.8em;
     font-weight: bold;
-    background: #1b3146;
+    background: #cbce18;
   }
 
   #table-area tr td:last-child {
@@ -166,7 +154,7 @@ select {
     height: 1px;
     margin-top: 20px;
     content: " ";
-    background: aliceblue;
+    background: rgb(173, 30, 114);
   }
 
   #table-area td {

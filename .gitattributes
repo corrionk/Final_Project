@@ -1,0 +1,8 @@
+of filter=lfs diff=lfs merge=lfs -text
+Beer.csv filter=lfs diff=lfs merge=lfs -text
+Top filter=lfs diff=lfs merge=lfs -text
+5 filter=lfs diff=lfs merge=lfs -text
+Types filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
+Top_five_beertypes.js filter=lfs diff=lfs merge=lfs -text
