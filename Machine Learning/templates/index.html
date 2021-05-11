@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html >
-
-
 <head>
   <meta charset="UTF-8">
   <title>Beer Ratings </title>
@@ -49,12 +47,15 @@ body {
 	<h1>Predict Beer Ratings</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
+     <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="brewery_id" placeholder="Brewery ID" required="required" />
     	<input type="text" name="review_aroma" placeholder="Beer Aroma" required="required" />
       <input type="text" name="review_appearance" placeholder="Beer appearance" required="required" />
       <input type="text" name="review_palate" placeholder="Beer Palate" required="required" />
 		  <input type="text" name="review_taste" placeholder="Beer Taste" required="required" />
       <input type="text" name="beer_abv" placeholder="Beer ABV Value" required="required" />
+      <input type="text" name="beer_style" placeholder="Beer Style" required="required" />
+      <input type="text" name="beer_name" placeholder="Beer Name" required="required" />
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
