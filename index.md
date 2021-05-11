@@ -18,6 +18,7 @@
           <a class="navbar-brand" href="Top5.csv">Beer Data</a>
           <a class="navbar-brand" href="Graphs.html">Graphs</a>
           <a class="navbar-brand" href="wordclouds.html">Word Clouds</a>
+          <a class="navbar-brand" href="Machine Learning/templates/index.html">Machine Learning</a>
             <img class="nav-pic" src="beer.svg">
         </div>
       </div>
