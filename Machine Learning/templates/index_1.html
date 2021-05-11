@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html >
+
+
 <head>
   <meta charset="UTF-8">
   <title>Beer Ratings </title>
@@ -12,7 +14,19 @@
 </head>
 
 <body>
-
+  <body>
+    <div class="wrapper">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <a class="navbar-brand" href="../Machine Learning/templates/Graphs.html">Graphs</a>
+            <a class="navbar-brand" href="wordclouds.html">Word Clouds</a>
+              <img class="nav-pic" src="beer.svg">
+          </div>
+        </div>
+      </nav>
+    <div class="navigation">
 <img src=
 "https://www.amazon.com/Dimple-Stein-Beer-Mug-Pack/dp/B00V5F2G5G"
          alt="beer image", width="400", height="150", style="float:left">
@@ -31,26 +45,23 @@ body {
 
 
 
-<div class="login">
+ <div class="login">
 	<h1>Predict Beer Ratings</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-      <input type="text" name="brewery_id" placeholder="Brewery ID" required="required" />
     	<input type="text" name="review_aroma" placeholder="Beer Aroma" required="required" />
       <input type="text" name="review_appearance" placeholder="Beer appearance" required="required" />
       <input type="text" name="review_palate" placeholder="Beer Palate" required="required" />
 		  <input type="text" name="review_taste" placeholder="Beer Taste" required="required" />
       <input type="text" name="beer_abv" placeholder="Beer ABV Value" required="required" />
-      <input type="text" name="beer_style" placeholder="Beer Style" required="required" />
-      <input type="text" name="beer_name" placeholder="Beer Name" required="required" />
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
    <br>
    <br>
-   {{prediction_text}}
+   {{ prediction_text }}
 
  </div>
 
