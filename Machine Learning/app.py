@@ -1,6 +1,9 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
+import json
+import joblib
+import pickle as pickle
 
 
 
@@ -26,11 +29,11 @@ def return_prediction(model,scaler,sample_json):
     return classes[X_test][0]
 
 
-
 # REMEMBER TO LOAD THE MODEL AND THE SCALER!
 app = Flask(__name__)
+# app = Flask(__name__, template_folder='./templates', static_folder='./static')
 beer_model = pickle.load(open('logmodel.pkl', 'rb'))
-beer_scaler = joblib.load("scaler.pkl")
+beer_scaler = pickle.load(open('scaler.pkl','rb'))
 
 
 @app.route('/')
@@ -43,13 +46,35 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    features = [int(x) for x in request.form.values()]
-    final_features = [np.array(features)]
-    prediction = model.predict(final_features)
+    with open('categorical_vars.json') as f:
+        convert_cats = json.load(f)
+    
+    brewery_id = int(request.form['brewery_id'])
+    review_aroma = float(request.form['review_aroma'])
+    review_appearance = float(request.form['review_appearance'])
+    review_palate = float(request.form['review_palate'])
+    review_taste = float(request.form['review_taste'])
+    beer_abv = float(request.form['beer_abv'])
+    #convert categorical variables
+    beer_style_dict = {value:key for key, value in convert_cats['beer_style'].items()}
+    beer_style = int(beer_style_dict[str(request.form['beer_style'])])
+    beer_name_dict = {value:key for key, value in convert_cats['beer_name'].items()}
+    beer_name = int(beer_name_dict[str(request.form['beer_name'])])
+    features = [[brewery_id, review_aroma, review_appearance, 
+                review_palate,review_taste, beer_abv,
+                beer_style, beer_name]]
 
-    output = round(prediction[0], 1)
+    # features = [[int(x) for x in request.form.values()]]
+    
+    scale_features = beer_scaler.transform(features)
+    prediction = beer_model.predict(scale_features)
+    print(prediction)
+    classes = np.array(["Not Excellent", "Excellent"])
+
+    output = classes[prediction][0]
 
     return render_template('index.html', prediction_text='Your Rating is: {}'.format(output))
+    # return render_template('index.html', prediction_text=output)
 
 if __name__ == "__main__":
     app.run(debug=True)
